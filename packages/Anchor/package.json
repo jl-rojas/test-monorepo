@@ -1,6 +1,6 @@
 {
   "name": "jlrojastestanchor",
-  "version": "7.1.0",
+  "version": "0.0.1",
   "private": false,
   "description": "Anchor component",
   "main": "build/index.js",
@@ -52,6 +52,5 @@
     "styled-components": "^5.2.1",
     "webpack": "^5.22.0",
     "webpack-cli": "^4.5.0"
-  },
-  "gitHead": "86df88909f8bc80f11daba64a98b085fd2734bba"
+  }
 }
