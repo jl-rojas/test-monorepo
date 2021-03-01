@@ -1,6 +1,6 @@
 {
   "name": "jlrojastestanchor",
-  "version": "0.0.2",
+  "version": "0.0.111",
   "private": false,
   "description": "Anchor component",
   "main": "build/index.js",
