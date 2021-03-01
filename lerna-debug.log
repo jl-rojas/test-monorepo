@@ -1,6 +1,6 @@
-33 error Error: Command failed: git tag v0.0.2 -m v0.0.2
-33 error fatal: tag 'v0.0.2' already exists
-33 error
-33 error     at makeError (C:\Users\jorge\AppData\Roaming\npm-cache\_npx\11760\node_modules\lerna\node_modules\execa\index.js:174:9)
-33 error     at C:\Users\jorge\AppData\Roaming\npm-cache\_npx\11760\node_modules\lerna\node_modules\execa\index.js:278:16
-33 error     at processTicksAndRejections (internal/process/task_queues.js:93:5)
+37 error Error: Command failed: git tag v0.0.2 -m v0.0.2
+37 error fatal: tag 'v0.0.2' already exists
+37 error
+37 error     at makeError (C:\Users\jorge\Documents\Work\test-monorepo\node_modules\execa\index.js:174:9)
+37 error     at C:\Users\jorge\Documents\Work\test-monorepo\node_modules\execa\index.js:278:16
+37 error     at processTicksAndRejections (internal/process/task_queues.js:93:5)
