@@ -28,4 +28,5 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish package
-        run: lerna publish --yes --message 'chore: release new versions'
+        run:
+          npm run publish --yes --message 'a'
