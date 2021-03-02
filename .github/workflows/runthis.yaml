@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Configure CI Git User
-        run: |
+        run:
           git config --global user.name 'jl-rojas'
           git config --global user.email 'jl.rojas@viaducto.io'
           git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_PAT@github.com/jl-rojas/test-monorepo
