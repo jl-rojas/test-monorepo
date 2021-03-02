@@ -2,7 +2,7 @@ const path = require('path')
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, '../build/'),
+    path: path.resolve(__dirname, '../build'),
     filename: 'index.js',
     libraryTarget: 'commonjs2',
   },
@@ -42,16 +42,15 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.css'],
-    modules: ["node_modules"],
     alias: {
-      react: path.resolve(__dirname, 'node_modules/react'),
+      react: path.resolve(__dirname, './node_modules/react'),
       'prop-types': path.resolve(
         __dirname,
-        'node_modules/prop-types'
+        './node_modules/prop-types'
       ),
       'styled-components': path.resolve(
         __dirname,
-        'node_modules/styled-components'
+        '../node_modules/styled-components'
       ),
     },
   },
