@@ -1,4 +1,4 @@
-name: Test package
+name: Test action publish
 
 on: push
 
@@ -6,23 +6,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: npm ci
-      - run: npm test
+      - name: checkout
+        uses: actions/checkout@v1
 
-  publish-gpr:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm run publish --canary --preid beta
+      - name: Configure CI Git User
+        run: |
+          git config --global user.name 'jl-rojas'
+          git config --global user.email 'jl.rojas@viaducto.io'
+          git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_PAT@github.com/jl-rojas/test-monorepo
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+
+      - name: Checkout and pull branch
+        run: git checkout "${GITHUB_REF:11}" && git pull
+
+      - name: Install Packages
+        run: yarn install
+
+      - name: Authenticate with Registry
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish package
+        run: lerna publish --yes --message 'chore: release new versions'
