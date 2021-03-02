@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": false,
   "description": "Anchor component",
-  "main": "build/index.js",
+  "main": "./build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --mode production --config config/webpack.config.js --watch",
