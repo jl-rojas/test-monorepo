@@ -1,4 +1,4 @@
-name: Test action publish
+name: Test package
 
 on: push
 
@@ -6,26 +6,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci
+      - run: npm test
 
-      - name: Configure CI Git User
-        run:
-          git config --global user.name 'jl-rojas'
-          git config --global user.email 'jl.rojas@viaducto.io'
-          git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_PAT@github.com/jl-rojas/test-monorepo
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
+      - run: npm ci
+      - run: npm run publish
         env:
-          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
-
-      - name: Checkout and pull branch
-        run: git checkout "${GITHUB_REF:11}" && git pull
-
-      - name: Install Packages
-        run: yarn install
-
-      - name: Authenticate with Registry
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Publish package
-        run: npm run publish --yes --message 'a'
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
