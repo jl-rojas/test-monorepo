@@ -80,7 +80,6 @@ const config = {
     success: '#31A74B',
     warning: '#FFDF38',
     danger: '#FF0000',
-
   },
 };
 
