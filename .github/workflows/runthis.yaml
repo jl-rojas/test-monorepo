@@ -28,5 +28,4 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish package
-        run:
-          npm run publish --yes --message 'a'
+        run: npm run publish --yes --message 'a'
