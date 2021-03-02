@@ -40,18 +40,19 @@ module.exports = {
       root: 'PropTypes',
     },
   },
-  // resolve: {
-  //   extensions: ['.js', '.jsx', '.css'],
-  //   alias: {
-  //     react: path.resolve(__dirname, '../node_modules/react'),
-  //     'prop-types': path.resolve(
-  //       __dirname,
-  //       './node_modules/prop-types'
-  //     ),
-  //     'styled-components': path.resolve(
-  //       __dirname,
-  //       '../node_modules/styled-components'
-  //     ),
-  //   },
-  // },
+  resolve: {
+    extensions: ['.js', '.jsx', '.css'],
+    modules: ["node_modules"],
+    alias: {
+      react: path.resolve(__dirname, 'node_modules/react'),
+      'prop-types': path.resolve(
+        __dirname,
+        'node_modules/prop-types'
+      ),
+      'styled-components': path.resolve(
+        __dirname,
+        'node_modules/styled-components'
+      ),
+    },
+  },
 }
